@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory Manager</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Product Inventory Manager</h1>
+
+        <h2>Add Product</h2>
+
+        <form id="productForm">
+            <input type="number" id="productId"
+                   placeholder="Product ID" required>
+
+            <input type="text" id="productName"
+                   placeholder="Product Name" required>
+
+            <input type="number" id="productPrice"
+                   placeholder="Price" min="0" step="0.01" required>
+
+            <input type="number" id="productQuantity"
+                   placeholder="Quantity" min="0" step="1" required>
+
+            <input type="text" id="productCategory"
+                   placeholder="Category" required>
+
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h2>Inventory List</h2>
+
+        <input type="text" id="searchInput"
+               placeholder="Search product by name">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="productTable"></tbody>
+        </table>
+
+        <h3>Total Products: <span id="totalProducts">0</span></h3>
+        <h3>Total Inventory Value: ₹<span id="totalValue">0</span></h3>
+    </div>
+
+    <script src="./src/app.js"></script>
+</body>
+</html>
