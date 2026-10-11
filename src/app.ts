@@ -25,11 +25,12 @@ function saveProducts(): void {
 function displayProducts(search: string = ""): void {
     table.innerHTML = "";
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(search.toLowerCase())
+    const filteredProducts: Product[] = products.filter(
+        (product: Product) =>
+            product.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    filteredProducts.forEach(product => {
+    filteredProducts.forEach((product: Product) => {
         const row = document.createElement("tr");
 
         const values = [
@@ -63,7 +64,7 @@ function displayProducts(search: string = ""): void {
 
     updateSummary();
 }
-
+    
 function addProduct(product: Product): void {
     const exists = products.some(p => p.id === product.id);
 
@@ -145,8 +146,9 @@ form.addEventListener("submit", (event: Event) => {
     form.reset();
 });
 
-searchInput.addEventListener("input", () => {
-    displayProducts(searchInput.value);
+searchInput.addEventListener("input", function (): void {
+    const searchText: string = searchInput.value.trim().toLowerCase();
+    displayProducts(searchText);
 });
 
 displayProducts();

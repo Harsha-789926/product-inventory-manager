@@ -13,8 +13,8 @@ function saveProducts() {
 }
 function displayProducts(search = "") {
     table.innerHTML = "";
-    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-    filteredProducts.forEach(product => {
+    const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()));
+    filteredProducts.forEach((product) => {
         const row = document.createElement("tr");
         const values = [
             product.id.toString(),
@@ -92,8 +92,9 @@ form.addEventListener("submit", (event) => {
     addProduct(product);
     form.reset();
 });
-searchInput.addEventListener("input", () => {
-    displayProducts(searchInput.value);
+searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.trim().toLowerCase();
+    displayProducts(searchText);
 });
 displayProducts();
 //# sourceMappingURL=app.js.map
